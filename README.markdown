@@ -3,9 +3,10 @@ Integrates Zend Cache framework into Symfony2.
 ## What it does
 
 This bundle allows to configure a Zend\Cache\Manager, and instanciate it, from the D.I.C.
-[Learn more about Zend Cache framework](http://framework.zend.com/manual/en/zend.cache.html)
-This bundle contains no code. It does *NOT* extend nor wrap Zend Cache classes.
+It contains no caching logic. It does **not** extend nor wrap Zend Cache classes.
 All it does is configure the service container to ease cache configuration and usage.
+
+[Learn more about Zend Cache framework](http://framework.zend.com/manual/en/zend.cache.html).
 
 ## Installation
 
