@@ -4,6 +4,8 @@ Integrates Zend Cache framework into Symfony2.
 
 This bundle allows to configure a Zend\Cache\Manager, and instanciate it, from the D.I.C.
 [Learn more about Zend Cache framework](http://framework.zend.com/manual/en/zend.cache.html)
+This bundle contains no code. It does *NOT* extend nor wrap Zend Cache classes.
+All it does is configure the service container to ease cache configuration and usage.
 
 ## Installation
 
@@ -46,6 +48,21 @@ This bundle allows to configure a Zend\Cache\Manager, and instanciate it, from t
                         cache_by_default: false
                 backend:
                     name: Apc
+## Usage
+
+Get the cache you declared from the service container:
+
+    $cache = $container->get('zend.cache_manager')->getCache('my_template_cache');
+
+    $cache->save($data, 'identifier_string');
+
+    $data = $cache->load('identifier_string');
+
+From a controller, you can use a simplified syntax:
+
+    $cache = $this['zend.cache_manager']->getCache('my_template_cache');
+
+As it is just pure Zend cache, please refer to [Zend Cache documentation](http://framework.zend.com/manual/en/zend.cache.introduction.html).
 
 ## Useful links
 
