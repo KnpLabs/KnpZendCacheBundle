@@ -26,7 +26,16 @@ All it does is configure the service container to ease cache configuration and u
         );
     }
 
+### Add Zend Framework to the include path
+
+ZF2 fails to load some classes properly. We need to add ZF2 path to PHP include path:
+
+    // src/autoload.php
+    set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__.'/vendor/zend/library');
+
 ### Configure your cache templates
+
+This is an example of configuration. Two templates cache are declared.
 
     # app/config.yml
     zend_cache.config:
@@ -38,9 +47,9 @@ All it does is configure the service container to ease cache configuration and u
                         lifetime: 7200
                         automatic_serialization: true
                 backend:
-                    name: Core
+                    name: File
                     options:
-                        cache_dir: %kernel.root_dir%/cache/zend
+                        cache_dir: %kernel.root_dir%/cache/%kernel.environment%/zend
             another_cache:
                 frontend:
                     name: Function
