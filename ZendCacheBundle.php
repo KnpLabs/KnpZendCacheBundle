@@ -13,6 +13,6 @@ class ZendCacheBundle extends BaseBundle
 
     public function getPath()
     {
-        return __DIR__;
+        return strtr(__DIR__, '\\', '/');
     }
 }
