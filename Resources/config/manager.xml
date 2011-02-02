@@ -10,7 +10,7 @@
 
     <services>
 
-        <service id="zend.cache_manager" class="%zend.cache_manager.class%" shared="true">
+        <service id="zend.cache_manager" class="%zend.cache_manager.class%">
         </service>
 
     </services>
