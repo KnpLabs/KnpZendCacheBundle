@@ -21,10 +21,19 @@ class ZendCacheExtension extends Extension
     /**
      * Loads the cache manager configuration.
      */
-    public function configLoad($config, ContainerBuilder $container)
+    public function configLoad(array $configs, ContainerBuilder $container)
     {
-        $loader = new XmlFileLoader($container, __DIR__.'/../Resources/config');
-        $loader->load('manager.xml');
+        foreach ($configs as $config) {
+            $this->doConfigLoad($config, $container);
+        }
+    }
+
+    public function doConfigLoad(array $config, ContainerBuilder $container)
+    {
+        if (!$container->hasDefinition('zend.cache_manager')) {
+            $loader = new XmlFileLoader($container, __DIR__.'/../Resources/config');
+            $loader->load('manager.xml');
+        }
 
         if(isset($config['templates']) && is_array($config['templates'])) {
             foreach($config['templates'] as $name => $template) {
