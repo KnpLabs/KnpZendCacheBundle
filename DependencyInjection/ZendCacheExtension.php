@@ -22,7 +22,7 @@ class ZendCacheExtension extends Extension
     /**
      * Loads the cache manager configuration.
      */
-    public function configLoad(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container)
     {
         foreach ($configs as $config) {
             $this->doConfigLoad($config, $container);
