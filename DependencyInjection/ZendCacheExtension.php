@@ -24,42 +24,16 @@ class ZendCacheExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('manager.xml');
+
+        $templates = array();
         foreach ($configs as $config) {
-            $this->doConfigLoad($config, $container);
-        }
-    }
-
-    public function doConfigLoad(array $config, ContainerBuilder $container)
-    {
-        if (!$container->hasDefinition('zend.cache_manager')) {
-            $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-            $loader->load('manager.xml');
+            $templates = array_merge($templates, $config['templates']);
         }
 
-        if(isset($config['templates']) && is_array($config['templates'])) {
-            foreach($config['templates'] as $name => $template) {
-                $container->findDefinition('zend.cache_manager')->addMethodCall('setCacheTemplate', array($name, $template));
-            }
+        foreach($templates as $name => $template) {
+            $container->findDefinition('zend.cache_manager')->addMethodCall('setCacheTemplate', array($name, $template));
         }
-    }
-
-    /**
-     * Returns the base path for the XSD files.
-     *
-     * @return string The XSD base path
-     */
-    public function getXsdValidationBasePath()
-    {
-        return __DIR__.'/../Resources/config/schema';
-    }
-
-    public function getNamespace()
-    {
-        return 'http://symfony.com/schema/dic/zend';
-    }
-
-    public function getAlias()
-    {
-        return 'zend_cache';
     }
 }
