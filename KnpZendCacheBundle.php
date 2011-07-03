@@ -1,10 +1,10 @@
 <?php
 
-namespace Bundle\ZendCacheBundle;
+namespace Knp\Bundle\ZendCacheBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle as BaseBundle;
 
-class ZendCacheBundle extends BaseBundle
+class KnpZendCacheBundle extends BaseBundle
 {
     public function getNamespace()
     {

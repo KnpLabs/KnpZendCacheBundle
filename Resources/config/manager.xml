@@ -5,12 +5,12 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="zend.cache_manager.class">Zend\Cache\Manager</parameter>
+        <parameter key="knp_zend_cache.manager.class">Zend\Cache\Manager</parameter>
     </parameters>
 
     <services>
 
-        <service id="zend.cache_manager" class="%zend.cache_manager.class%">
+        <service id="knp_zend_cache.manager" class="%knp_zend_cache.manager.class%">
         </service>
 
     </services>

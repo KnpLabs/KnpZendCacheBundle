@@ -1,6 +1,6 @@
 <?php
 
-namespace Bundle\ZendCacheBundle\DependencyInjection;
+namespace Knp\Bundle\ZendCacheBundle\DependencyInjection;
 
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
@@ -15,9 +15,9 @@ use Symfony\Component\Config\FileLocator;
  */
 
 /**
- * ZendCacheExtension is an extension for the Zend\Cache\Manager Framework library.
+ * KnpZendCacheExtension is an extension for the Zend\Cache\Manager Framework library.
  */
-class ZendCacheExtension extends Extension
+class KnpZendCacheExtension extends Extension
 {
     /**
      * Loads the cache manager configuration.
@@ -33,7 +33,7 @@ class ZendCacheExtension extends Extension
         }
 
         foreach($templates as $name => $template) {
-            $container->findDefinition('zend.cache_manager')->addMethodCall('setCacheTemplate', array($name, $template));
+            $container->findDefinition('knp_zend_cache.manager')->addMethodCall('setCacheTemplate', array($name, $template));
         }
     }
 }

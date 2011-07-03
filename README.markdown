@@ -10,10 +10,18 @@ All it does is configure the service container to ease cache configuration and u
 
 ## Installation
 
-### Add ZendCacheBundle to your src/Bundle dir
+### Add ZendCacheBundle to your vendor/bundles/Knp/Bundle dir
 
-    git submodule add git://github.com/knplabs/ZendCacheBundle.git src/Bundle/ZendCacheBundle
+    git submodule add git://github.com/knplabs/KnpZendCacheBundle.git vendor/bundles/Knp/Bundle/ZendCacheBundle
 
+### Add the namespaces to your autoloader
+
+    // app/autoload.php
+    $loader->registerNamespaces(array(
+        'Knp'                       => __DIR__.'/../vendor/bundles',
+        // ...
+    ));
+    
 ### Add ZendCacheBundle to your application kernel
 
     // app/AppKernel.php
@@ -21,7 +29,7 @@ All it does is configure the service container to ease cache configuration and u
     {
         return array(
             // ...
-            new Bundle\ZendCacheBundle\ZendCacheBundle(),
+            new Knp\Bundle\ZendCacheBundle\KnpZendCacheBundle(),
             // ...
         );
     }
@@ -38,7 +46,7 @@ ZF2 fails to load some classes properly. We need to add ZF2 path to PHP include 
 This is an example of configuration. Two templates cache are declared.
 
     # app/config.yml
-    zend_cache.config:
+    knp_zend_cache.config:
         templates:
             my_template_cache:
                 frontend:
@@ -62,7 +70,7 @@ This is an example of configuration. Two templates cache are declared.
 
 Get the cache you declared from the service container:
 
-    $cache = $container->get('zend.cache_manager')->getCache('my_template_cache');
+    $cache = $container->get('knp_zend_cache.manager')->getCache('my_template_cache');
 
     $cache->save($data, 'identifier_string');
 
@@ -70,7 +78,7 @@ Get the cache you declared from the service container:
 
 From a controller, you can use a simplified syntax:
 
-    $cache = $this['zend.cache_manager']->getCache('my_template_cache');
+    $cache = $this['knp_zend_cache.manager']->getCache('my_template_cache');
 
 As it is just pure Zend cache, please refer to [Zend Cache documentation](http://framework.zend.com/manual/en/zend.cache.introduction.html).
 
