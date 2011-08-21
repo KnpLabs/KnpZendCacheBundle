@@ -3,16 +3,20 @@
 In Symfony2 you can use [HTTP cache](http://symfony.com/doc/2.0/book/http_cache.html).
 That's great to cache a page or part of the page.
 
-But what if you want to cache a variable?
+But what if you want to cache a variable? That's where you should use KnpZendCacheBundle.
 
-That's where you can use KnpZendCacheBundle.
+To avoid code duplication we use the well-known [Zend Cache](http://framework.zend.com/manual/en/zend.cache.html) component in our Symfony2 application.  
+It works great and already has all sort of options - should you need it.
 
-To avoid code duplication we use the well-known [Zend Cache](http://framework.zend.com/manual/en/zend.cache.html) component in our Symfony2 application.
-
-## What it does
+## Behind the scene
 
 This bundle allows to configure a `Zend\Cache\Manager`, and instanciate it, from the DIC.  
-It does not contain any caching logic: that's [Zend Cache](http://framework.zend.com/manual/en/zend.cache.html)'s role
+It does not contain any caching logic: that's [Zend Cache](http://framework.zend.com/manual/en/zend.cache.html)'s role.
+
+So you should read the [Zend Cache documentation](http://framework.zend.com/manual/en/zend.cache.introduction.html)
+if you need anything of the ordinary.
+
+See [how to declare cache templates](http://framework.zend.com/manual/en/zend.cache.cache.manager.html), available [cache frontends](http://framework.zend.com/manual/en/zend.cache.frontends.html) and [cache backends](http://framework.zend.com/manual/en/zend.cache.backends.html).
 
 ## Installation
 
@@ -32,12 +36,12 @@ If you use git:
 
 ```php
 <?php
-    // app/autoload.php
-    $loader->registerNamespaces(array(
-        'Knp'                       => __DIR__.'/../vendor/bundles',
-        'Zend'                      => __DIR__.'/../vendor',
-        // ...
-    ));
+// app/autoload.php
+$loader->registerNamespaces(array(
+    'Knp'                       => __DIR__.'/../vendor/bundles',
+    'Zend'                      => __DIR__.'/../vendor',
+    // ...
+));
 ```
 
 ### Add KnpZendCacheBundle to your application kernel
@@ -55,9 +59,9 @@ public function registerBundles()
 }
 ```
 
-## About Zend Cache
+## Things you should know about Zend Cache
 
-### What do you want to cache?
+### Frontends: what do you want to cache?
 
 In Zend Framework caching is operated by frontends:
 
@@ -71,7 +75,7 @@ In Zend Framework caching is operated by frontends:
 
 You can find more infos and options on [Zend Framework cache frontends](http://framework.zend.com/manual/en/zend.cache.frontends.html).
 
-### Where do you want to cache it?
+### Backends: How do you want to cache it?
 
 Cache records are stored through backend adapters:
 
@@ -86,7 +90,7 @@ Cache records are stored through backend adapters:
 
 You can find more infos and options on [Zend Framework cache backends](http://framework.zend.com/manual/en/zend.cache.backends.html).
 
-## Usage
+## KnpZendCacheBundle usage
 
 Let's say you have a variable `$myLastTweets`.
 
@@ -145,9 +149,3 @@ return $myLastTweets;
 ```
 
 That's it!
-
-## Documentation
-
-As it is just pure Zend cache, please refer to [Zend Cache documentation](http://framework.zend.com/manual/en/zend.cache.introduction.html).
-
-See [how to declare cache templates](http://framework.zend.com/manual/en/zend.cache.cache.manager.html), available [cache frontends](http://framework.zend.com/manual/en/zend.cache.frontends.html) and [cache backends](http://framework.zend.com/manual/en/zend.cache.backends.html).
