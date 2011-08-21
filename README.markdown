@@ -140,9 +140,9 @@ $cache = $this->get('knp_zend_cache.manager')->getCache('tweets_and_stuff');
 if (false === ($myLastTweets = $cache->load('last_tweets'))) {
 
     // cache miss: call the webservice and do stuff
-    $myLastTweets = $container->get('tweet_service')->doComplexStuff();
+    $myLastTweets = $tweetService->doComplexStuff();
 
-    $cache->save($result, 'last_tweets');
+    $cache->save($myLastTweets, 'last_tweets');
 }
 
 return $myLastTweets;
