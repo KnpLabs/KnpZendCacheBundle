@@ -110,7 +110,7 @@ So in order to do that, we'll have to:
 
 ```yaml
 # app/config.yml
-knp_zend_cache.config:
+knp_zend_cache:
     templates:
         tweets_and_stuff:
             frontend:
