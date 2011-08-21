@@ -31,6 +31,7 @@ If you use git:
 If you use git:
 
     git submodule add http://github.com/knplabs/zend-cache.git vendor/Zend/Cache
+    git submodule add http://github.com/knplabs/zend-filter.git vendor/Zend/Filter
 
 ### Add the new namespaces to your autoloader
 
