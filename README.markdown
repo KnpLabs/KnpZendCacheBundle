@@ -121,7 +121,7 @@ knp_zend_cache:
             backend:
                 name: File
                 options:
-                    cache_dir: %kernel.root_dir%/cache/%kernel.environment%/knp_zend_cache
+                    cache_dir: %kernel.root_dir%/cache/%kernel.environment%
 ```
 #### 2 - Use it
 
