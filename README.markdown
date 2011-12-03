@@ -24,14 +24,14 @@ See [how to declare cache templates](http://framework.zend.com/manual/en/zend.ca
 
 If you use git:
 
-    git submodule add http://github.com/knplabs/KnpZendCacheBundle.git vendor/bundles/Knp/Bundle/ZendCacheBundle
+    git submodule add http://github.com/KnpLabs/KnpZendCacheBundle.git vendor/bundles/Knp/Bundle/ZendCacheBundle
 
 ### Download zend-cache to your vendor/Zend/Cache dir
 
 If you use git:
 
-    git submodule add http://github.com/knplabs/zend-cache.git vendor/Zend/Cache
-    git submodule add http://github.com/knplabs/zend-filter.git vendor/Zend/Filter
+    git submodule add http://github.com/KnpLabs/zend-cache.git vendor/Zend/Cache
+    git submodule add http://github.com/KnpLabs/zend-filter.git vendor/Zend/Filter
 
 ### Add the new namespaces to your autoloader
 
