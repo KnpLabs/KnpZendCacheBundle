@@ -1,0 +1,72 @@
+{
+    "name":        "knplabs/knp-zend-cache-bundle",
+    "type":        "symfony-bundle",
+    "description": "Integrates Zend Cache framework into Symfony2.",
+    "keywords":    ["zend", "cache", "knplabs", "knp", "bundle"],
+    "homepage":    "http://github.com/KnpLabs/KnpZendCacheBundle",
+    "license":     "MIT",
+
+    "authors": [
+        {
+            "name": "KnpLabs Team",
+            "homepage": "http://knplabs.com"
+        },
+        {
+            "name": "Symfony Community",
+            "homepage": "http://github.com/KnpLabs/KnpZendCacheBundle/contributors"
+        }
+    ],
+
+    "require": {
+        "php":                       ">=5.3.2",
+        "symfony/framework-bundle":  ">=2.0.0",
+        "zendframework/zend-cache":  "*",
+        "zendframework/zend-filter": "*"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Knp\\Bundle\\ZendCacheBundle": ""
+        }
+    },
+
+    "target-dir": "Knp/Bundle/ZendCacheBundle",
+
+    "repositories": {
+        "zendframework/zend-cache": {
+            "package": {
+                "name": "zendframework/zend-cache",
+                "version": "master-dev",
+                "dist": {
+                    "url": "https://github.com/KnpLabs/zend-cache/zipball/master",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "git://github.com/KnpLabs/zend-cache.git",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "autoload": {
+                    "psr-0": { "Zend\\Cache": "php/" }
+                }
+            }
+        },
+        "zendframework/zend-filter": {
+            "package": {
+                "name": "zendframework/zend-filter",
+                "dist": {
+                    "url": "https://github.com/KnpLabs/zend-filter/zipball/master",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "git://github.com/KnpLabs/zend-filter.git",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "autoload": {
+                    "psr-0": { "Zend\\Filter": "php/" }
+                }
+            }
+        }
+    }
+}
