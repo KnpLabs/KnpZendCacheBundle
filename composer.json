@@ -34,6 +34,7 @@
 
     "repositories": {
         "zendframework/zend-cache": {
+            "type": "package",
             "package": {
                 "name": "zendframework/zend-cache",
                 "version": "master-dev",
@@ -47,13 +48,15 @@
                     "reference": "master"
                 },
                 "autoload": {
-                    "psr-0": { "Zend\\Cache": "php/" }
+                    "psr-0": { "Zend\\Cache": "" }
                 }
             }
         },
         "zendframework/zend-filter": {
+            "type": "package",
             "package": {
                 "name": "zendframework/zend-filter",
+                "version": "master-dev",
                 "dist": {
                     "url": "https://github.com/KnpLabs/zend-filter/zipball/master",
                     "type": "zip"
@@ -64,7 +67,7 @@
                     "reference": "master"
                 },
                 "autoload": {
-                    "psr-0": { "Zend\\Filter": "php/" }
+                    "psr-0": { "Zend\\Filter": "" }
                 }
             }
         }
