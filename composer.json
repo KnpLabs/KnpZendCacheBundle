@@ -33,41 +33,33 @@
     "target-dir": "Knp/Bundle/ZendCacheBundle",
 
     "repositories": {
-        "zendframework/zend-cache": {
+        {
             "type": "package",
             "package": {
                 "name": "zendframework/zend-cache",
-                "version": "master-dev",
                 "dist": {
-                    "url": "https://github.com/KnpLabs/zend-cache/zipball/master",
+                    "url": "http://github.com/KnpLabs/zend-cache/zipball/master",
                     "type": "zip"
                 },
                 "source": {
                     "url": "git://github.com/KnpLabs/zend-cache.git",
                     "type": "git",
                     "reference": "master"
-                },
-                "autoload": {
-                    "psr-0": { "Zend\\Cache": "" }
                 }
             }
         },
-        "zendframework/zend-filter": {
+        {
             "type": "package",
             "package": {
                 "name": "zendframework/zend-filter",
-                "version": "master-dev",
                 "dist": {
-                    "url": "https://github.com/KnpLabs/zend-filter/zipball/master",
+                    "url": "http://github.com/KnpLabs/zend-filter/zipball/master",
                     "type": "zip"
                 },
                 "source": {
                     "url": "git://github.com/KnpLabs/zend-filter.git",
                     "type": "git",
                     "reference": "master"
-                },
-                "autoload": {
-                    "psr-0": { "Zend\\Filter": "" }
                 }
             }
         }
