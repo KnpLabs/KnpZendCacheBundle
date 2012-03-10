@@ -20,8 +20,8 @@
     "require": {
         "php":                       ">=5.3.2",
         "symfony/framework-bundle":  ">=2.0.0",
-        "zendframework/zend-cache":  "dev-master",
-        "zendframework/zend-filter": "dev-master"
+        "zendframework/zend-cache":  "2.0.0beta1",
+        "zendframework/zend-filter": "2.0.0beta1"
     },
 
     "autoload": {
@@ -32,11 +32,12 @@
 
     "target-dir": "Knp/Bundle/ZendCacheBundle",
 
-    "repositories": {
+    "repositories": [
         {
             "type": "package",
             "package": {
                 "name": "zendframework/zend-cache",
+                "version": "2.0.0beta1",
                 "dist": {
                     "url": "http://github.com/KnpLabs/zend-cache/zipball/master",
                     "type": "zip"
@@ -45,6 +46,11 @@
                     "url": "git://github.com/KnpLabs/zend-cache.git",
                     "type": "git",
                     "reference": "master"
+                },
+                "autoload": {
+                    "psr-0": {
+                        "Zend\\Cache": ""
+                    }
                 }
             }
         },
@@ -52,6 +58,7 @@
             "type": "package",
             "package": {
                 "name": "zendframework/zend-filter",
+                "version": "2.0.0beta1",
                 "dist": {
                     "url": "http://github.com/KnpLabs/zend-filter/zipball/master",
                     "type": "zip"
@@ -60,8 +67,13 @@
                     "url": "git://github.com/KnpLabs/zend-filter.git",
                     "type": "git",
                     "reference": "master"
+                },
+                "autoload": {
+                    "psr-0": {
+                        "Zend\\Filter": ""
+                    }
                 }
             }
         }
-    }
+    ]
 }
