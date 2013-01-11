@@ -1,3 +1,6 @@
+#This project is no longer maintained by KnpLabs
+------------------------------------------------
+
 # KnpZendCacheBundle
 
 In Symfony2 you can use [HTTP cache](http://symfony.com/doc/2.0/book/http_cache.html).
