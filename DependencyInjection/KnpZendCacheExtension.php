@@ -29,11 +29,30 @@ class KnpZendCacheExtension extends Extension
 
         $templates = array();
         foreach ($configs as $config) {
-            $templates = array_merge($templates, $config['templates']);
+            $templates = self::mergeRecursive($templates, $config['templates']);
         }
 
         foreach($templates as $name => $template) {
             $container->findDefinition('knp_zend_cache.manager')->addMethodCall('setCacheTemplate', array($name, $template));
         }
+    }
+
+    /**
+     * Merges $a and $b, overridding $a with $b
+     * @param array $a
+     * @param array $b
+     * @return array
+     */
+    private static function mergeRecursive($a, $b) {
+        foreach (array_keys($b) as $key) {
+            if (!isset($a[$key])) {
+                $a[$key] = $b[$key];
+            } else if (is_array($a[$key]) && is_array($b[$key])) {
+                $a[$key] = self::mergeRecursive($a[$key], $b[$key]);
+            } else {
+                $a[$key] = $b[$key];
+            }
+        }
+        return $a;
     }
 }
