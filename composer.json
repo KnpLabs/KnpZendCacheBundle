@@ -5,7 +5,6 @@
     "keywords":    ["zend", "cache", "knplabs", "knp", "bundle"],
     "homepage":    "http://github.com/KnpLabs/KnpZendCacheBundle",
     "license":     "MIT",
-
     "authors": [
         {
             "name": "KnpLabs Team",
@@ -16,54 +15,16 @@
             "homepage": "http://github.com/KnpLabs/KnpZendCacheBundle/contributors"
         }
     ],
-
     "require": {
         "php":                       ">=5.3.2",
         "symfony/framework-bundle":  ">=2.0.0",
-        "zendframework/zend-cache":  "2.0.0-beta1",
-        "zendframework/zend-filter": "2.0.0-beta1"
+        "zendframework/zend-cache":  "~2.0.5",
+        "zendframework/zend-filter": "~2.0.3"
     },
-
     "autoload": {
         "psr-0": {
             "Knp\\Bundle\\ZendCacheBundle": ""
         }
     },
-
-    "target-dir": "Knp/Bundle/ZendCacheBundle",
-
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "zendframework/zend-cache",
-                "version": "2.0.0-beta1",
-                "dist": {
-                    "url":  "http://packages.zendframework.com/get/Zend_Cache-2.0.0beta1.tgz",
-                    "type": "pear"
-                },
-                "autoload": {
-                    "psr-0": {
-                        "Zend\\Cache": "php/"
-                    }
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "zendframework/zend-filter",
-                "version": "2.0.0-beta1",
-                "dist": {
-                    "url":  "http://packages.zendframework.com/get/Zend_Filter-2.0.0beta1.tgz",
-                    "type": "pear"
-                },
-                "autoload": {
-                    "psr-0": {
-                        "Zend\\Filter": "php/"
-                    }
-                }
-            }
-        }
-    ]
+    "target-dir": "Knp/Bundle/ZendCacheBundle"
 }
